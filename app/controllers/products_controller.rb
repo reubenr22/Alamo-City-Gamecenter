@@ -13,16 +13,16 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/new
-  def new
+ def new
+    authorize! :create, @product
     @product = Product.new
     @categories = Category.all
-  end
+ end
 
-  # GET /products/1/edit
-  def edit
+def edit
+    authorize! :update, @product
     @categories = Category.all
-
-  end
+end
 
   # POST /products
   # POST /products.json
@@ -57,12 +57,13 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
+    authorize! :destroy, @product
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
+ end
 
   private
     # Use callbacks to share common setup or constraints between actions.
