@@ -12,6 +12,20 @@ def view_order
     @line_items = LineItem.all
 end
 
-  def checkout
+def checkout
+  line_items = LineItem.all
+  @order = Order.create(user_id: current_user.id, subtotal: 0)
+
+  line_items.each do |line_item|
+    line_item.product.update(quantity: (line_item.product.quantity - line_item.quantity))
+    @order.order_items[line_item.product_id] = line_item.quantity 
+    @order.subtotal += line_item.line_item_total
   end
+  @order.save
+
+  @order.update(sales_tax: (@order.subtotal * 0.08))
+  @order.update(grand_total: (@order.sales_tax + @order.subtotal))
+
+  line_items.destroy_all
+end
 end
