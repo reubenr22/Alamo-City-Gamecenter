@@ -32,12 +32,21 @@
                     <% end %>
                   </ul>
                 </li>
-                <li><a class="nav-list-item" href="http://localhost:3000/branding"><span class="nav-brand-color">Items by brand</span></a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brands<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <% @brands.each do |brand| %>
+                      <li><%= link_to brand, branding_path(brand: brand) %></li>
+                    <% end %>
+                      <li><%= link_to 'All', root_path %></li>
+                  </ul>
+                      </li> 
+                </li>
                 <li>
-                <% if user_signed_in? %>
-                  <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
-                <% end %>
-              </li>
+                  <% if user_signed_in? %>
+                    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+                  <% end %>
+                </li>
               </ul>
             </div>
           </button>
