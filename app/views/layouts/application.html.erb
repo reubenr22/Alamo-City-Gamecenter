@@ -10,6 +10,39 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+      <div class="container">
+           <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+           <a class="navbar-brand" href="http://localhost:3000/store"><span class="nav-brand-color">A.C. Gamecenter</span></a>
+          </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a class="nav-list-item" href="http://localhost:3000/store"><span class="nav-brand-color">All items</span></a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <% @categories.each do |category| %>
+                      <li><%= link_to category.name, categorical_path(category_id: category.id) %></li>
+                    <% end %>
+                  </ul>
+                </li>
+                <li><a class="nav-list-item" href="http://localhost:3000/branding"><span class="nav-brand-color">Items by brand</span></a></li>
+                <li>
+                <% if user_signed_in? %>
+                  <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+                <% end %>
+              </li>
+              </ul>
+            </div>
+          </button>
+      </div>
+    </nav>
     <div class="container">
       <%= yield %>
     </div>
