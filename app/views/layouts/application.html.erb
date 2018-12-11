@@ -43,6 +43,9 @@
                       </li> 
                 </li>
                 <li>
+                  <%= link_to "View Cart", view_order_path %>
+                </li>
+                <li>
                   <% if user_signed_in? %>
                     <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
                   <% end %>
