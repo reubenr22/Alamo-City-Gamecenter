@@ -17,4 +17,51 @@
 @import 'bootstrap';
 @import 'font-awesome';
 
-body { padding-top: 70px; }
+body { 
+	padding-top: 70px; 
+	background-color: #fffeb3;
+}
+
+.modal-background{
+	background-color:#ffe28a;
+}
+
+.blue-text{
+	color:#6fcb9f;
+}
+
+.black-text{
+	color:black;
+}
+
+.red-text{
+	color:#fb2e01;
+}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+@media only screen and (min-height: 600px) {
+
+	.spacer-75{
+		margin-left:auto;
+		margin-right:auto;
+		height:75px;
+	}
+}
+
+@media only screen and (min-height: 500px) {
+
+	.spacer-30{
+		margin-left:auto;
+		margin-right:auto;
+		height:30px;
+	}
+}

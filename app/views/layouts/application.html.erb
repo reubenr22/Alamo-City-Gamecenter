@@ -19,13 +19,13 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-           <a class="navbar-brand" href="http://localhost:3000/store"><span class="nav-brand-color">A.C. Gamecenter</span></a>
+           <a class="navbar-brand" href="http://localhost:3000/store"><span class="red-text">A.C. Gamecenter</span></a>
           </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li><a class="nav-list-item" href="http://localhost:3000/store"><span class="nav-brand-color">All items</span></a></li>
+                <li><a class="nav-list-item" href="http://localhost:3000/store"><span class="red-text">All items</span></a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="red-text">Categories</span> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <% @categories.each do |category| %>
                       <li><%= link_to category.name, categorical_path(category_id: category.id) %></li>
@@ -33,7 +33,7 @@
                   </ul>
                 </li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brands<span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="red-text">Brands</span><span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <% @brands.each do |brand| %>
                       <li><%= link_to brand, branding_path(brand: brand) %></li>
@@ -43,9 +43,9 @@
                       </li> 
                 </li>
                 <li>
-                  <%= link_to "View Cart", view_order_path %>
+                  <%= link_to "View Cart",view_order_path %>
                 </li>
-                <li>
+                <li class="hidden-xs">
                   <% if user_signed_in? %>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

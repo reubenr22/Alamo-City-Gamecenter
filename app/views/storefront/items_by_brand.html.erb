@@ -1,11 +1,11 @@
-<h1>Here are our <%= @brand %> products</h1>
+<h1 class="text-center">Here are our <%= @brand %> products</h1>
 <div class="row">
   <% @products.each do |product| %>
     <div class="col-md-6">
-      <div class="well text-center">
-        <p><%= image_tag(product.image.url, class: "img-responsive", :width => '300', :height => "300") %></p>
+      <div class="well text-center modal-background">
+        <p><%= image_tag(product.image.url, class: "img-responsive", class: "center-block", :width => '300', :height => "300") %></p>
         <h3><%= link_to product.name, product %></h3>
-        <p><%= number_to_currency product.price %></p>
+        <p class="blue-text"><%= number_to_currency product.price %></p>
         <p>
           <a href='#' data-toggle="modal" data-target="#myModal_<%= product.id %>">
             <span class='glyphicon glyphicon-plus'></span>More Info
@@ -24,8 +24,8 @@
             <h4 class="modal-title" id="myModalLabel"><%= product.name%></h4>
           </div>
           <div class="modal-body text-center">
-            <p><%= image_tag(product.image.url, class: "img-responsive", :width => '300', :height => "300") %></p>
-            <p><%= number_to_currency product.price %></p>
+            <p><%= image_tag(product.image.url, class: "img-responsive", class: "center-block", :width => '300', :height => "300") %></p>
+            <p class="blue-text"><%= number_to_currency product.price %></p>
             <p><%= product.description %></p>
           </div>
           <div class="modal-footer">
